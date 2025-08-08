@@ -1,0 +1,198 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Adjust as needed for vertical alignment */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    overflow: visible;
+}
+
+.profile-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px; /* Batasi lebar maksimum container */
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Header Styling */
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+.profile-header h1 {
+    color: black;
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Grid Layout Styling */
+.profile-grid {
+    display: grid;
+    /* Define grid areas for better readability and organization */
+    grid-template-areas:
+        "name-photo name-photo"
+        "contact address"
+        "about about"
+        "education education"
+        "experience experience"
+        "skills skills";
+    gap: 10px; /* Jarak antar item grid */
+}
+
+/* Grid Item Styling */
+.grid-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.grid-item h2 {
+    color: black;
+    margin-top: 0;
+    font-size: 1.3em;
+    border-bottom: 1px dashed black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.grid-item p,
+.grid-item ul {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.grid-item ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.grid-item ul li {
+    margin-bottom: 5px;
+}
+
+.grid-item a {
+    color: blue;
+    text-decoration: none;
+}
+
+.grid-item a:hover {
+    text-decoration: underline;
+}
+
+/* Specific Grid Item Placement */
+.full-width-top {
+    grid-area: name-photo;
+    display: flex;
+    flex-direction: column; /* Stack name and photo vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: right;
+    position: relative; /* For image positioning */
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Membuat gambar lingkaran */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+    border: 3px solid #007bff;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item:nth-child(2) { /* Kontak */
+    grid-area: contact;
+}
+
+.grid-item:nth-child(3) { /* Alamat */
+    grid-area: address;
+}
+
+.full-width-bottom:nth-of-type(1) { /* Tentang Saya */
+    grid-area: about;
+}
+
+.full-width-bottom:nth-of-type(2) { /* Pendidikan */
+    grid-area: education;
+}
+
+.full-width-bottom:nth-of-type(3) { /* Pengalaman Kerja */
+    grid-area: experience;
+}
+
+.full-width-bottom:nth-of-type(4) { /* Keahlian */
+    grid-area: skills;
+}
+
+/* Skills List Styling */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skills-list span {
+    background-color: #e0f2f7;
+    color: #0056b3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    border: 1px solid #b3e5fc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-grid {
+        /* On smaller screens, stack all items vertically */
+        grid-template-areas:
+            "name-photo"
+            "contact"
+            "address"
+            "about"
+            "education"
+            "experience"
+            "skills";
+        grid-template-columns: 1fr; /* Single column */
+    }
+
+    .profile-container {
+        padding: 20px;
+    }
+
+    .profile-header h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .profile-container {
+        padding: 15px;
+    }
+
+    .grid-item {
+        padding: 15px;
+    }
+
+    .grid-item h2 {
+        font-size: 1.1em;
+    }
+}
